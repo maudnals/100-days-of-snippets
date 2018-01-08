@@ -17,6 +17,6 @@ export default function isPlainObject(obj) {
   }
   let proto = Object.getPrototypeOf(obj);
   // "Object" is JS's built-in Base Object.
-  // proto is 
+  // proto 
   // while (proto !== null)
 }
