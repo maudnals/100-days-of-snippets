@@ -1,9 +1,8 @@
-
 /* 
 # 001
 Tags: object, prototype
 Lib/Fwk: Redux
-Source: https://github.com/reactjs/redux/blob/master/src/utils/isPlainObject.js 
+Source: https://github.com/reactjs/redux/blob/master/src/utils/isPlainObject.js
 */
 
 // Note: a plain object in JS is the simplest kind of object: a set of key-value pairs, created by the {} object literal notation or constructed with new Object().
