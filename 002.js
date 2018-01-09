@@ -36,5 +36,6 @@ export default function (...funcs) {
   // the goal is to compose functions, ie to transform funcs into one single function that's the composition of them all
   // a = accumulator (all composed functions so far)
   // c = currentValue (the current func from funcs)
-  // ((...args) => a(c(...args))) is the composed function of a and c // (...args are just regular arguments)
+  // ((...args) => a(c(...args))) is the composed function of a and c // (...args are just regular arguments).
+  // remember, doing a().b() doesn't make sense, we don't want to invoke the functions here - we just want to return a new function object.
 }
