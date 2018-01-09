@@ -31,5 +31,10 @@ export default function (...funcs) {
     return funcs[0];
   }
 
-  return funcs.reduce((a, c) => ((...args) => a(c(...args)) ));
+  return funcs.reduce((a, c) => ((...args) => a(c(...args))));
+
+  // the goal is to compose functions, ie to transform funcs into one single function that's the composition of them all
+  // a = accumulator (all composed functions so far)
+  // c = currentValue (the current func from funcs)
+  // ((...args) => a(c(...args))) is the composed function of a and c // (...args are just regular arguments)
 }
