@@ -11,6 +11,7 @@ function isCrushed() {}
 function isCrushed() {}
 if (
   process.env.NODE_ENV !== 'production' &&
+  // process is a node variable
   typeof isCrushed.name === 'string' &&
   isCrushed.name !== 'isCrushed'
   // access the function object's "name" ppty
