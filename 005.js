@@ -10,7 +10,8 @@ function bindActionCreator(actionCreator, dispatch) {
   // {type: "XXX", payload: x}
   return function() {
     // return a function without invoking it (the input is also a function). Here function is needed so we can wrap the invokation. In order to wrap a function b into another one a we need f() {b(a)}.
-    // return dispatch(actionCreator);
+    // why not dispatch(actionCreator); ?
+    // why `return`? why `apply`? why such arguments for apply?
 
     // return (actionCreator.apply());
       // wrap the actionCreator function into a dispatch call

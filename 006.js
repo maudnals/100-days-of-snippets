@@ -1,6 +1,6 @@
 /* 
 # 006
-Tags: environments, nide, minification
+Tags: environments, node
 Lib/Fwk: Redux
 Source: https://github.com/reactjs/redux/blob/master/src/combineReducers.js
 */
