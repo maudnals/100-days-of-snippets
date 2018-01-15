@@ -51,5 +51,4 @@ test();
 // * may be invoked directly. This is just a convenience method, as you can call
 // * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
 // *
-
 // store.dispatch(MyActionCreators.doSomething())
