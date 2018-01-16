@@ -26,6 +26,7 @@ export default function isPlainObject(obj) {
   }
   // so proto is what the object is at its root level - on the most "left" of the object definition
   // (not to be confused with object deep ppties! object depth !== prototype chain depth)
+  // WHATS AT THE BOTTOM OF THE PROTOTYPE CHAIN IS WHAT THE OBJECT IS AT ITS BASIC LEVEL (doesn't matter what's inside)
   
   // so if we have a plain object, proto should be the pure __proto__ of a normal object
   // i.e. the same proto as an object that is typeof "object"... such as obj
