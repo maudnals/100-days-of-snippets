@@ -5,8 +5,9 @@ Lib/Fwk: Redux
 Source: https://github.com/reactjs/redux/blob/master/src/utils/isPlainObject.js
 */
 
-// Note: a plain object in JS is the simplest kind of object: a set of key-value pairs, created by the {} object literal notation or constructed with new Object().
-export default function isPlainObject(obj) {
+// Note: a plain object in JS is the simplest kind of object: a set of key-value pairs, created by the {} object literal notation or constructed with new Object() (the Object constructor or one with a [[Prototype]])
+// btw this can be found in lodash! and jQuery.
+function isPlainObject(obj) {
   if (typeof obj !== "object" || obj === null) {
     // check obj is of OBJECT type: 
     // its type must be "object" (all primitives have their stringified type as type, including undefined)
@@ -20,7 +21,7 @@ export default function isPlainObject(obj) {
   while (Object.getPrototypeOf(proto) !== null) {
     proto = Object.getPrototypeOf(proto);
     // "Object" is JS's built-in Base Object.
-    // Here we're basically travelling down the prototype chain down to second last node (the very last node is always null).
+    // Here we're basically travelling down the prototype chain down to SECOND SECOND last node (the very last node is always null, and the node above is always "Object").
     // myObj ---> {} (__proto__) ---> {} (__proto__) --> (...) --> null
     // proto is the object's prototype, i.e. __proto__ (also referred to as [[Prototype]] in MDN docs)
   }
@@ -33,6 +34,6 @@ export default function isPlainObject(obj) {
 
   return (Object.getPrototypeOf(obj) === proto);
 }
-// isPlainObject(["one", "two"]) // false
+isPlainObject(["one", "two"]); // false
 // isPlainObject(new Date()) // false
 // isPlainObject({name: "john", addresses: []}) // true
