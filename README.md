@@ -1,3 +1,3 @@
-🏁 = interesrtin pattern
+🏁 = interesting pattern
 
 # Repos I've used
