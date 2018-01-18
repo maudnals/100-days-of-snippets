@@ -10,6 +10,7 @@ Source: https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponen
   'use strict';
 
   window.WebComponents = window.WebComponents || {};
+  // avoid overriding
   var name = 'webcomponents-loader.js';
 
   var polyfills = [];
