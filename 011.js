@@ -21,17 +21,17 @@ Source: https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponen
     // 🏁 indeed polyfills are called webcomponents-hi-sd-ce.js for example
     var newScript = document.createElement('script');
     var replacement = 'webcomponents-' + polyfills.join('-') + '.js';
-    // 🏁 replace the currently running script???
+    // set src of the new scrip (= polyfill to be added)
     var url = script.src.replace(name, replacement);
     newScript.src = url;
-    // NOTE: this is required to ensure the polyfills are loaded before
-    // *native* html imports load on older Chrome versions. This *is* CSP
-    // compliant since CSP rules must have allowed this script to run.
-    // In all other cases, this can be async.
-    // document.readyState can be "loading", "interactive" (doc itself is loaded and parsed but sub-resources i.e. img and css are still loading) or "complete" (everything is loaded and the load event is about to fire)
+    // document.readyState: can be "loading", "interactive" (doc itself is loaded and parsed but sub-resources i.e. img and css are still loading) or "complete" (everything is loaded and the load event is about to fire)
+    // import' in document.createElement('link'): it's a way to check for the presence of html imports feature in the browser
     if (document.readyState === 'loading' && ('import' in document.createElement('link'))) {
+      // if so, we load the polyfill script as html import
+      // outerHTML: serialized HTML fragment describing the element including its descendants
       document.write(newScript.outerHTML);
     } else {
+      // otherwise just add is as a normal script element (in the head)
       document.head.appendChild(newScript);
     }
   }
