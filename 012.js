@@ -5,6 +5,7 @@ Lib/Fwk: redux
 Source: https://github.com/reactjs/redux/blob/master/src/createStore.js
 */
 
+
 // actions are objects as follows:
 // {
 //   type: "HIDE_NOTIFICATION", 
@@ -40,9 +41,9 @@ function dispatch(action) {
     // if isDispatching is true, it means that: even though i'm currently executing a dispatch (up the stack), somewhere below in the stack there's another dispatch call. Which paused in order to execute, since JS is single threaded async. And which paused while isDispatching was true apparently, since we're entering this block. And the only place where that's possible is in the block below where isDispatching is set to true, and oh the function that's called there is a reducer. So it means dispatch was called by a reducer, hence the message new Error('Reducers may not dispatch actions.') makes sense.
     // OK, so this whole `isDispatching` thing is here just to prevent devs from making Reducers dispatch actions. Why do we want to avoid that?
     // Because reducers must be pure functions and have no side effect. As documented there https://github.com/reactjs/redux/blob/master/docs/api/Store.md: 
-    // You are disallowed to dispatch inside the reducers because they must have no side effects. If you want to cause a side effect in response to an action, the right place to do this is in the potentially async action creator." (this has nothing to do with an infinite loop as i thought, since the reducers would be different ones obviously)
+    // "You are disallowed to dispatch inside the reducers because they must have no side effects. If you want to cause a side effect in response to an action, the right place to do this is in the potentially async action creator." (this has nothing to do with an infinite loop as i thought, since the reducers would be different ones obviously)
     // OK makes sense.
-    // Side node: both dispatch() execution contexts have access to isDispatching (defined outside of dispatch()) because of closures: dispatch has closed isDispatching in. Another nice use of closure: access to the call stack's state! Wow.
+    // 🏁  Side node: both dispatch() execution contexts have access to isDispatching (defined outside of dispatch()) because of closures: dispatch has closed isDispatching in. Another nice use of closure: access to the call stack's state! Wow.
     throw new Error('Reducers may not dispatch actions.')
   }
 
