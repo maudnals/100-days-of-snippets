@@ -17,7 +17,7 @@ if (
   // access the function object's "name" ppty
   // if it's a string (i.e. if the function isn't anonymous as that would be isCrushed.name = undefined) but is not "isCrushed"
   // it means it has been minified
-  // i.e. the function has been minified and NODE_ENV !== 'production', that's not good
+  // i.e. the function has been minified although NODE_ENV !== 'production', that's not good
 ) {
   // it has been minified > throw warning to the user
   // (warning has been imported in imports)
