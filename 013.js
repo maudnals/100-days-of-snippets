@@ -27,7 +27,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
     // add a listener:
     listeners = [...listeners, newListener];
     // WEEEELL..... if i do it this way i DO mutate listeners since i assign a new value to it!!
-    // the idea is to krep it intact really.
+    // the idea is to keep it intact really.
     */
     nextListeners.splice(index, 1)
 
