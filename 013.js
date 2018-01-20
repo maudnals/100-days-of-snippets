@@ -44,7 +44,7 @@ export default function createStore(reducer, preloadedState, enhancer) {
     nextListeners.push(listener)
 
     // RETURN UNSUBSCRIBE FUNCTION
-    // ❓ why
+    // 🏁 nice pattern
     return function unsubscribe() {
       // [...]
       ensureCanMutateNextListeners()
