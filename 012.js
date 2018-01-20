@@ -21,6 +21,8 @@ which would both, once dispatched, act on the same boolean isDescriptionExpanded
 
 function dispatch(action) {
 
+  // ---- STEP 1 - VALIDATE ACTION OBJECT
+
   if (!isPlainObject(action)) {
     // an action itself can not be a promise or an observable.
     // if needed, wrap it in a middleware.
@@ -67,6 +69,8 @@ function dispatch(action) {
     throw new Error('Reducers may not dispatch actions.')
   }
 
+  // ---- STEP 2 - CREATE NEW VERSION OF THE STATE: pass state and action into the reducer, and save the returned state.
+
   try {
     isDispatching = true
     // state = reducer(state, action)
@@ -78,7 +82,11 @@ function dispatch(action) {
     isDispatching = false
   }
 
-  // listeners have been subscribed by the user to be used as callbacks
+  // STEP 3 - trigger all listeners in the store ("hey, state has been updated)
+
+  // listeners that have been subscribed by the user to be used as callbacks.
+  // a = (b = c) ==> a is b is c
+  // btw = operator associativity is right to left anyway so () is redundant I think
   const listeners = (currentListeners = nextListeners)
   for (let i = 0; i < listeners.length; i++) {
     // call all listeners (why don't they simply listeners[i]() ? not sure.)
@@ -92,5 +100,6 @@ function dispatch(action) {
     listener()
   }
 
+  // makes sense to return the action
   return action
 }
