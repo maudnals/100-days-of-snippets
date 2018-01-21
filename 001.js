@@ -21,8 +21,11 @@ function isPlainObject(obj) {
   while (Object.getPrototypeOf(proto) !== null) {
     proto = Object.getPrototypeOf(proto);
     // "Object" is JS's built-in Base Object.
-    // Here we're basically travelling down the prototype chain down to SECOND SECOND last node (the very last node is always null, and the node above is always "Object").
-    // myObj ---> {} (__proto__) ---> {} (__proto__) --> (...) --> null
+    // for any object the prototype chain always end with these 2 nodes: Object --> null.
+    // so in order to check if an onject is "plain", we need to check the proto that's above Object (if there's one)
+    // Here we're basically travelling down the prototype chain down to SECOND SECOND last node
+    // ie the node that's just above JS's core Object
+    // myObj ---> {} (__proto__) ---> {} (__proto__) THIS GUY HERE --> Object --> null
     // proto is the object's prototype, i.e. __proto__ (also referred to as [[Prototype]] in MDN docs)
   }
   // so proto is what the object is at its root level - on the most "left" of the object definition
