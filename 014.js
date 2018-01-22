@@ -31,7 +31,7 @@ function dispatch(action) {
         payload: result
     }));
     A little better (#B) is to separate the action creator:
-
+    ❓
     that would be inconvenient in a large app because:
     - you’ll have different components performing the same actions.
     - you might want to debounce some actions (just like event debouncing - when 100* the same action type comes at the same type 

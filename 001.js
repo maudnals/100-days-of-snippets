@@ -28,6 +28,7 @@ function isPlainObject(obj) {
     // myObj ---> {} (__proto__) ---> {} (__proto__) THIS GUY HERE --> Object --> null
     // proto is the object's prototype, i.e. __proto__ (also referred to as [[Prototype]] in MDN docs)
   }
+  // ❓
   // so proto is what the object is at its root level - on the most "left" of the object definition
   // (not to be confused with object deep ppties! object depth !== prototype chain depth)
   // WHATS AT THE BOTTOM OF THE PROTOTYPE CHAIN IS WHAT THE OBJECT IS AT ITS BASIC LEVEL (doesn't matter what's inside)
