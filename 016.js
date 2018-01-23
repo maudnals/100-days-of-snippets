@@ -1,8 +1,14 @@
-
-
-
-
+/*
+$$observable = real code dependency (need npm install to make it work) 
+// in package.json:
+"dependencies": {
+  "loose-envify": "^1.1.0",
+  "symbol-observable": "^1.0.3"
+},
+*/
 import $$observable from 'symbol-observable'
+
+
 /**
  * Interoperability point for observable/reactive libraries.
  */
