@@ -1,6 +1,6 @@
 /* 
 # 015
-Tags: actions, code splittingm, hot reloading
+Tags: actions, code splitting, hot reloading
 Lib/Fwk: redux
 Source: https://github.com/reactjs/redux/blob/master/src/createStore.js
 */
