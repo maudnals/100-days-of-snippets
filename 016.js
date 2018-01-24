@@ -1,10 +1,11 @@
 /*
-$$observable = real code dependency (need npm install to make it work) 
+$$observable = real code dependency (need npm install to make it work)
+(contrary to dev dependencies who are just here for the dev/build process)
 // in package.json:
 "dependencies": {
   "loose-envify": "^1.1.0",
   "symbol-observable": "^1.0.3"
-},
+}
 */
 import $$observable from 'symbol-observable'
 
