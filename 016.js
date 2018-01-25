@@ -1,3 +1,10 @@
+/* 
+# 016
+Tags: observable
+Lib/Fwk: redux
+Source: https://github.com/reactjs/redux/blob/master/src/createStore.js
+*/
+
 /*
 $$observable = real code dependency (need npm install to make it work)
 (contrary to dev dependencies who are just here for the dev/build process)
