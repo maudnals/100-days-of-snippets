@@ -39,7 +39,7 @@ import $$observable from 'symbol-observable'
  * What would be required to make redux compatible with it?
  * - A stream: that's the stream of events that apply a change to the state ; the state story becomes the stream
  * - A subscribe method...
- * - To subscribe an observer
+ * - ...To subscribe an observer.
  */
 function observable() {
   // reference the enclosed (closure) subscribe function

@@ -21,7 +21,7 @@ Source: https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponen
     // 🏁 indeed polyfills are called webcomponents-hi-sd-ce.js for example
     var newScript = document.createElement('script');
     var replacement = 'webcomponents-' + polyfills.join('-') + '.js';
-    // set src of the new scrip (= polyfill to be added)
+    // set src of the new script (= polyfill to be added)
     var url = script.src.replace(name, replacement);
     newScript.src = url;
     /* document.readyState: can be... 
