@@ -7,12 +7,14 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Observable.ts
 
 export interface Subscribable<T> {
   /**
-   * a subscribable object must have a subscribe method
-   * that returns a subscription object
+   * a subscribable object must have a subscribe() method.
+   * subscibe returns a subscription object
    * which looks like // AnonymousSubscription = 
    * export interface AnonymousSubscription {
    * unsubscribe(): void;
    * }
+   * same pattern as is redux: when subcsribing i get back an object/function that 
+   * enables me to unsubscribe.
    */
   /**
    * 101 of reactive programming: reminder.
