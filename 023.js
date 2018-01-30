@@ -16,7 +16,7 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.
  * ---
  * What's a subscription?
  * Represents a disposable resource, such as the execution of an Observable. A
-  * Subscription has one important method, `unsubscribe`, that
+ * Subscription has one important method, `unsubscribe`, that
   * just disposes the resource held by the subscription.
   * == it's like an event listener
   * (see https://medium.com/@benlesh/rxjs-dont-unsubscribe-6753ed4fda87)
@@ -24,32 +24,29 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.
  */
 
 
-
-/**
-   * Adds a tear down to be called during the unsubscribe() of this
-   * Subscription.
-   *
-   * If the tear down being added is a subscription that is already
-   * unsubscribed, is the same reference `add` is being called on, or is
-   * `Subscription.EMPTY`, it will not be added.
-   *
-   * If this subscription is already in an `closed` state, the passed
-   * tear down logic will be executed immediately.
-   *
-   * @param {TeardownLogic} teardown The additional logic to execute on
-   * teardown.
-   * @return {Subscription} Returns the Subscription used or created to be
-   * added to the inner subscriptions list. This Subscription can be used with
-   * `remove()` to remove the passed teardown logic from the inner subscriptions
-   * list.
-   */
-
-
 /*
- * Additionally, subscriptions may be grouped together through the `add()`
+ * Subscriptions may be grouped together through the `add()`
  * method, which will attach a child Subscription to the current Subscription.
  * When a Subscription is unsubscribed, all its children (and its grandchildren)
  * will be unsubscribed as well.
+ */
+/**
+ * Adds a tear down to be called during the unsubscribe() of this
+ * Subscription.
+ *
+ * If the tear down being added is a subscription that is already
+ * unsubscribed, is the same reference `add` is being called on, or is
+ * `Subscription.EMPTY`, it will not be added.
+ *
+ * If this subscription is already in an `closed` state, the passed
+ * tear down logic will be executed immediately.
+ *
+ * @param {TeardownLogic} teardown The additional logic to execute on
+ * teardown.
+ * @return {Subscription} Returns the Subscription used or created to be
+ * added to the inner subscriptions list. This Subscription can be used with
+ * `remove()` to remove the passed teardown logic from the inner subscriptions
+ * list.
  */
 
 add(teardown: TeardownLogic): Subscription {
@@ -79,8 +76,9 @@ add(teardown: TeardownLogic): Subscription {
         return subscription;
       } else if (typeof subscription._addParent !== 'function' /* quack quack */) {
         // quack quack = probably duck typing but i'm not sure how
-        // anyhow, here it looks like if subscription has no way to be given a parent,
-        // 
+        // anyhow, here it looks like: 
+        // if subscription has no way to be given a parent,
+        // we nest it as a child subscription inside a new parent.
         const tmp = subscription;
         subscription = new Subscription();
         subscription._subscriptions = [tmp];
