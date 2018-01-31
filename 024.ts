@@ -46,8 +46,11 @@
       let trial = tryCatch(_unsubscribe).call(this);
       // alright basically any "risky" operation still has a rather simple (almost normal-looking) syntax, only it's wrapped into a tryCatch.
       // note the .call(this)
-      // => declarative style than imperative. In the style of async.
+      // => declarative style than imperative (async/await - like).
+      // then deal with error in a separate block.
+      // Note how typing helps here - if (... errorObject)
       if (trial === errorObject) {
+        // hasError pattern: we check all along unsubscribe whether an error (any) happens - if so then we throw a very specific error about unsubscribe (see bottom)
         hasErrors = true;
         errors = errors || (
           errorObject.e instanceof UnsubscriptionError ?
@@ -58,26 +61,7 @@
 
     // is current subsciprion has children (as an array of _subscriptions)
     if (isArray(_subscriptions)) {
-
-      index = -1;
-      len = _subscriptions.length;
-
-      while (++index < len) {
-        const sub = _subscriptions[index];
-        if (isObject(sub)) {
-          let trial = tryCatch(sub.unsubscribe).call(sub);
-          if (trial === errorObject) {
-            hasErrors = true;
-            errors = errors || [];
-            let err = errorObject.e;
-            if (err instanceof UnsubscriptionError) {
-              errors = errors.concat(flattenUnsubscriptionErrors(err.errors));
-            } else {
-              errors.push(err);
-            }
-          }
-        }
-      }
+      // (... to be continued)
     }
 
     if (hasErrors) {
