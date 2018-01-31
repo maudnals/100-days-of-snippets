@@ -1,11 +1,14 @@
-
+/* 
+# 024
+Tags: typescript, errors
+Lib/Fwk: RxJS
+Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.ts
+*/
 
 
   /**
    * Disposes the resources held by the subscription. May, for instance, cancel
-   * an ongoing Observable execution or cancel any other type of work that
-   * started when the Subscription was created.
-   * @return {void}
+   * an ongoing Observable execution or cancel any other type of work that started when the Subscription was created.
    */
   unsubscribe(): void {
     let hasErrors = false;
@@ -18,7 +21,8 @@
     }
 
     // !syntax: destructuring assignment
-    // also: we're assigning the current this._parent value to the _parent variable (as a temp) to snapshot it before mutating this._parent.
+    // also: we're assigning the current this._parent value to the _parent variable (as a temp) 
+    // to snapshot it before mutating this._parent.
     let { _parent, _parents, _unsubscribe, _subscriptions } = (<any> this);
 
     this.closed = true;
@@ -50,7 +54,7 @@
       // then deal with error in a separate block.
       // Note how typing helps here - if (... errorObject)
       if (trial === errorObject) {
-        // hasError pattern: we check all along unsubscribe whether an error (any) happens - if so then we throw a very specific error about unsubscribe (see bottom)
+        // hasError pattern: we check all along unsubscribe whether an error (any) happens - if so then we throw a very specific error about unsubscribe, i.e. UnsubscriptionError (see last statement)
         hasErrors = true;
         errors = errors || (
           errorObject.e instanceof UnsubscriptionError ?
