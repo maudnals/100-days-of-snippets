@@ -15,10 +15,9 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.
  * "TeardownLogic is the additional logic to execute on teardown"
  * ---
  * What's a subscription?
- * Represents a disposable resource, such as the execution of an Observable. A
- * Subscription has one important method, `unsubscribe`, that
+ * Represents a disposable resource, such as the execution of an Observable. A subscription has one important method, `unsubscribe`, that
   * just disposes the resource held by the subscription.
-  * == it's like an event listener
+  * ==> it's like an event listener!
   * (see https://medium.com/@benlesh/rxjs-dont-unsubscribe-6753ed4fda87)
  * 
  */
@@ -30,6 +29,7 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.
  * When a Subscription is unsubscribed, all its children (and its grandchildren)
  * will be unsubscribed as well.
  */
+
 /**
  * Adds a tear down to be called during the unsubscribe() of this
  * Subscription.
