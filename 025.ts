@@ -7,7 +7,13 @@ Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.
 
 
 function flattenUnsubscriptionErrors(errors: any[]) {
-  return errors.reduce((errs, err) => errs.concat((err instanceof UnsubscriptionError) ? err.errors : err), []);
+  // flatten means reduce - think of it like going from a 1D element (an array = a line) to a 0D one (a single value = data point)
+  // reduce(a, c) = reduce(accumulator, currentValue)
+  return errors.reduce(
+    // err = current error in errors array
+    (errs, err) => errs.concat((err instanceof UnsubscriptionError) ? err.errors : err),
+    // [] = initial value of errs (the accumulator)
+    []);
 }
 
 /* 
