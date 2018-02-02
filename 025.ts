@@ -1,6 +1,6 @@
 /* 
 # 025
-Tags: typescript, errors
+Tags: errors
 Lib/Fwk: RxJS
 Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.ts
 */

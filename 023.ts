@@ -1,6 +1,6 @@
 /* 
 # 023
-Tags: typescript, subsription, duck typing
+Tags: subscription, duck typing
 Lib/Fwk: RxJS
 Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Subscription.ts
 */

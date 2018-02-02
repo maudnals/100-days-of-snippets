@@ -1,6 +1,6 @@
 /* 
 # 021
-Tags: typescript, interface, observers
+Tags: interface, observers
 Lib/Fwk: RxJS
 Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Observer.ts
 */

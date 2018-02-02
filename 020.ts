@@ -1,6 +1,6 @@
 /* 
 # 020
-Tags: typescript, interface, observable
+Tags: interface, observable
 Lib/Fwk: RxJS
 Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Observable.ts
 */
