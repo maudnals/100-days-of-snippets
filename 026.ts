@@ -18,6 +18,14 @@ remove(subscription: Subscription): void {
       // syntax is (startIndex, nbOfElementsToRemove)
       // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
       subscriptions.splice(subscriptionIndex, 1);
+      /**
+       * Why do they use indexOf over includes?
+       * ----
+       * .... because it's pre-ES6 code / for browser support?
+       * anyhow, benefits of includes over indexOf:
+       * The includes method finds NaN and undefined whereas the indexOf method doesn't.
+       * The includes() method  does not distinguish between -0 and +0
+       */
     }
   }
 }
