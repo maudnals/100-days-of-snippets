@@ -5,7 +5,7 @@ Lib/Fwk: RxJS
 Source: https://github.com/ReactiveX/rxjs/blob/master/src/internal/Observer.ts
 */
 
-// Observer for when stream emits a value
+// Observer for when the stream emits a value
 export interface NextObserver<T> {
   closed?: boolean;
   // next is mandatory 
@@ -15,7 +15,7 @@ export interface NextObserver<T> {
   complete?: () => void;
 }
 
-// Observer for when stream errors
+// Observer for when the stream errors
 export interface ErrorObserver<T> {
   closed?: boolean;
   // next and complete are optional
@@ -25,7 +25,7 @@ export interface ErrorObserver<T> {
   complete?: () => void;
 }
 
-// Observer for when stream finishes (completes)
+// Observer for when the stream finishes (completes)
 export interface CompletionObserver<T> {
   closed?: boolean;
   // next and error are optional
