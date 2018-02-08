@@ -25,39 +25,12 @@ export class Scheduler implements IScheduler {
    * For example, a client browser in one timezone, getTime() will be the same as a client browser 
    * in any other timezone.
    * E.g. : -14254782000 (for pre-1970 dates)
-   * 
+   * ----
+   * how does ot work?
+   * it creates a new date and then casts the newly created date onto a number.
+   * (more exactly:Convert it to a Number then Convert it to a primitive then Call the internal [[DefaultValue]] method))
+   * ----
+   * what's better?
+   * Date().getTime() is argued as more readable and faster (only thing that happens
+   * is we return the value of the [[PrimitiveValue]] internal property of this Date object.)
    */
-
-
-  Why is this the case?
-
-  Here's what happens when you call the getTime method on a Date instance:
-  
-  Return the value of the [[PrimitiveValue]] internal property of this Date object.
-  Here's what happens when you apply the unary plus operator to a Date instance:
-  
-  Get the value of the Date instance in question
-  Convert it to a Number
-  Convert it to a primitive
-  Call the internal [[DefaultValue]] method
-
-
-
-
-
-
-  constructor(private SchedulerAction: typeof Action,
-    now: () => number = Scheduler.now) {
-    this.now = now;
-  }
-
-  /**
-   * A getter method that returns a number representing the current time
-   * (at the time this function was called) according to the scheduler's own internal clock.
-   * @return {number} A number that represents the current time. May or may not
-   * have a relation to wall-clock time. May or may not refer to a time unit
-   * (e.g. milliseconds).
-   */
-  public now: () => number;
-
-}
