@@ -1,18 +1,24 @@
+/* 
+# 032
+Tags: typing, API
+Lib/Fwk: Hyperapp
+Source: 
+https://github.com/hyperapp/hyperapp/blob/master/hyperapp.d.ts
 
-
-
-  constructor(private SchedulerAction: typeof Action,
-    now: () => number = Scheduler.now) {
-    this.now = now;
-  }
-
-  /**
-   * A getter method that returns a number representing the current time
-   * (at the time this function was called) according to the scheduler's own internal clock.
-   * @return {number} A number that represents the current time. May or may not
-   * have a relation to wall-clock time. May or may not refer to a time unit
-   * (e.g. milliseconds).
-   */
-  public now: () => number;
-
-}
+/**
+ * ----
+ * What is it?
+ * ----
+ * It's called a declaration ("d") file.
+ * ----
+ * What is it for?
+ * ----
+ * For third-party TypeScript developers.
+ * It provides TypeScript with type informations about a JS API.
+ * It gives us the benefits of static typing while still having simply JS code.
+ * ----
+ * How is it created?
+ * ----
+ * - Written by hand
+ * - Generated from a TypeScript file automatically (only signatures of the types which are exported)
+ */
