@@ -16,7 +16,7 @@ https://github.com/hyperapp/hyperapp/blob/master/src/index.js
 //   </div>
 // )
 
-// What is compiled thanks to babel
+// What is compiled by babel
 // const view = (state, actions) =>
 //   h("div", {}, [
 //     h("h1", {}, state.count),
@@ -52,7 +52,7 @@ export function h(name, attributes /*, ...rest*/) {
     }
 
   /**
-   * if name is not a function (like in all of our cases above), what will be return from h is:
+   * if name is not a function (like in all of our cases above), what will be returned from h is:
    * {
    *  nodeName: "h1",
    *  attributes: {},
