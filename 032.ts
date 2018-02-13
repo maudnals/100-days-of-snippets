@@ -4,6 +4,7 @@ Tags: typing, API
 Lib/Fwk: Hyperapp
 Source: 
 https://github.com/hyperapp/hyperapp/blob/master/hyperapp.d.ts
+*/
 
 /**
  * ----
