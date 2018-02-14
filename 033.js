@@ -7,6 +7,11 @@ https://github.com/hyperapp/hyperapp/blob/master/src/index.js
 */
 
 
+// -------------------
+// myApp
+// -------------------
+
+
 // What I write (JSX)
 // const view = (state, actions) => (
 //   <div>
@@ -23,6 +28,15 @@ https://github.com/hyperapp/hyperapp/blob/master/src/index.js
 //     h("button", { onclick: () => actions.down(1) }, "-"),
 //     h("button", { onclick: () => actions.up(1) }, "+")
 //   ])
+
+// Note how at start of my app file I still need to import h
+// Even though only babel needs it, not me:
+// import { h } from "hyperapp"
+
+
+// -------------------
+// hyperapp framework
+// -------------------
 
 export function h(name, attributes /*, ...rest*/) {
   var node
@@ -56,7 +70,7 @@ export function h(name, attributes /*, ...rest*/) {
    * {
    *  nodeName: "h1",
    *  attributes: {},
-   *  children: [state.count],
+   *  children: [state.count], // potentially an array children: [state.count, xxx]
    *  key: false
    * }
    * or 
