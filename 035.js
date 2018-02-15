@@ -24,7 +24,7 @@ const actions = {
 /* 
 Chained arrow function = CURRYING
 Currying is transforming sum(1, 2, 3) into sum(1)(2)(3), ie a sequence of functions that only take one parameter (arity=1)
-So basically instead of:
+So instead of:
 function up (value, state) {
   return { 
     count: state.count + value
@@ -38,6 +38,7 @@ function up (value) {
     };
   }
 }
+And when calling it will look like: up(value)(state)
 */
 
 const view = (state, actions) => (
@@ -70,35 +71,4 @@ export function app(state, actions, view, container) {
   return wiredActions
 
   // ...
-
-  // closure
-  function wireStateToActions(path, state, actions) {
-    for (var key in actions) {
-      typeof actions[key] === "function"
-        ? (function (key, action) {
-          actions[key] = function (data) {
-            if (typeof (data = action(data)) === "function") {
-              data = data(get(path, globalState), actions)
-            }
-
-            if (
-              data &&
-              data !== (state = get(path, globalState)) &&
-              !data.then // Promise
-            ) {
-              scheduleRender(
-                (globalState = set(path, clone(state, data), globalState))
-              )
-            }
-
-            return data
-          }
-        })(key, actions[key])
-        : wireStateToActions(
-          path.concat(key),
-          (state[key] = state[key] || {}),
-          (actions[key] = clone(actions[key]))
-        )
-    }
-  }
 }
