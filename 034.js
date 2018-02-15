@@ -54,12 +54,18 @@ export function app(state, actions, view, container) {
 }
 
 
-// copy of an object's own ppties
+// copy of an object's ppties
 // obj[i] = xxx 
-// IN is FOR (own) KEYS
+// IN is FOR KEYS
 function clone(target, source) {
   // if two arguments then the return value is the two objects merged into one
   var obj = {}
+  /**
+   * About for ... in
+   * for ... in shows enumerable ppty keys only.
+   * But what is enumerable?
+   * By default, all object ppties (except Symbols) have enumerable set to true.
+   */
   for (var i in target) obj[i] = target[i]
   for (var i in source) obj[i] = source[i]
   return obj

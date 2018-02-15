@@ -42,8 +42,9 @@ export function app(state, actions, view, container) {
   var invokeLaterStack = []
   var rootElement = (container && container.children[0]) || null
   var oldNode = rootElement && toVNode(rootElement, [].map)
+  // clone the state object
   var globalState = clone(state)
-
+  // clone the actions object
   var wiredActions = clone(actions)
 
   scheduleRender(wireStateToActions([], globalState, wiredActions))
@@ -51,15 +52,4 @@ export function app(state, actions, view, container) {
   return wiredActions
 
   // ...
-}
-
-
-// shallow copy of an object's OWN ppties (IN = SHALLOW, OWN, KEYS)
-// obj[i] = xxx IN is FOR KEYS
-function clone(target, source) {
-  // if two arguments then the return value is the two objects merged into one
-  var obj = {}
-  for (var i in target) obj[i] = target[i]
-  for (var i in source) obj[i] = source[i]
-  return obj
 }
