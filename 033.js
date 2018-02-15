@@ -11,7 +11,6 @@ https://github.com/hyperapp/hyperapp/blob/master/src/index.js
 // myApp
 // -------------------
 
-
 // What I write (JSX)
 // const view = (state, actions) => (
 //   <div>
@@ -32,6 +31,7 @@ https://github.com/hyperapp/hyperapp/blob/master/src/index.js
 // Note how at start of my app file I still need to import h
 // Even though only babel needs it, not me:
 // import { h } from "hyperapp"
+
 
 
 // -------------------

@@ -1,5 +1,5 @@
 /* 
-# 034
+# 035
 Tags: framework main function
 Lib/Fwk: Hyperapp
 Source: 
@@ -54,9 +54,8 @@ export function app(state, actions, view, container) {
 }
 
 
-// copy of an object's own ppties
-// obj[i] = xxx 
-// IN is FOR (own) KEYS
+// shallow copy of an object's OWN ppties (IN = SHALLOW, OWN, KEYS)
+// obj[i] = xxx IN is FOR KEYS
 function clone(target, source) {
   // if two arguments then the return value is the two objects merged into one
   var obj = {}
