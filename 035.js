@@ -1,6 +1,6 @@
 /* 
 # 035
-Tags: framework main function, closure
+Tags: currying
 Lib/Fwk: Hyperapp
 Source: 
 https://github.com/hyperapp/hyperapp/blob/master/src/index.js
@@ -58,23 +58,3 @@ const view = (state, actions) => (
 )
 
 app(state, actions, view, document.body)
-
-
-// -------------------
-// hyperapp framework
-// -------------------
-
-export function app(state, actions, view, container) {
-  var renderLock
-  var invokeLaterStack = []
-  var rootElement = (container && container.children[0]) || null
-  var oldNode = rootElement && toVNode(rootElement, [].map)
-  // clone the state object
-  var globalState = clone(state)
-  // clone the actions object
-  var wiredActions = clone(actions)
-
-  scheduleRender(wireStateToActions([], globalState, wiredActions))
-  return wiredActions
-  // ...
-}
