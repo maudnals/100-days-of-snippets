@@ -23,7 +23,11 @@ const actions = {
 }
 /* 
 Chained arrow function = CURRYING
+---
+What is it
 Currying is transforming sum(1, 2, 3) into sum(1)(2)(3), ie a sequence of functions that only take one parameter (arity=1)
+---
+What does it look like
 So instead of:
 function up (value, state) {
   return { 
@@ -38,7 +42,11 @@ function up (value) {
     };
   }
 }
-And when calling it will look like: up(value)(state)
+And when calling it will look like:  
+up(value)(state)
+---
+What's the point?
+Smaller reusable functions
 */
 
 const view = (state, actions) => (
@@ -67,8 +75,6 @@ export function app(state, actions, view, container) {
   var wiredActions = clone(actions)
 
   scheduleRender(wireStateToActions([], globalState, wiredActions))
-
   return wiredActions
-
   // ...
 }
