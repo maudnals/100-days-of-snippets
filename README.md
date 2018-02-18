@@ -3,3 +3,5 @@
 # Repos I've used
 * react 
 * web components polyfill
+* rxjs
+* Hyperapp
