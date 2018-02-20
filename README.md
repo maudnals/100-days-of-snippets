@@ -4,4 +4,4 @@
 * react 
 * web components polyfill
 * rxjs
-* Hyperapp
+* Hyperapp (a sort of mini react!)
