@@ -42,7 +42,7 @@ function up (value) {
     };
   }
 }
-And when calling it will look like:  
+And when calling it will look like:
 up(value)(state)
 ---
 What's the point?
