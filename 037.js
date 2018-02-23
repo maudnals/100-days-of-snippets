@@ -16,9 +16,24 @@ function render() {
    * container = an HTML element in which the hyperapp will be rendered.
    * In real life, never use HTML `body` as container! 
    * One shouldn't render to body, because everybody knows about it and everybody updates it -
-   * Google Font Loader, 3rd parties, social media, ... (see READMEE for details).
+   * Google Font Loader, 3rd partiy scripts, social media, ... (see READMEE for details).
    */
   if (container && !renderLock) {
+    /*
+    * (oldNode = next): this syntax is just for concision.
+    -----
+    instead of:
+    temp = oldNode
+    oldNode = next;
+    rootElement = patch(container, rootElement, temp, next)
+    -----
+    we do: 
+    rootElement = patch(container, rootElement, oldNode, oldNode = next)
+    It's shorter, more elegant, and makes sense from the flow 
+    perspective because in the end the variable reassignment
+    is done *for* (*through*) this function call
+     */
+    // oldNode = next; 
     rootElement = patch(container, rootElement, oldNode, (oldNode = next))
     // firstRender determines 
     firstRender = false
