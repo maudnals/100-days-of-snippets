@@ -1,18 +1,23 @@
 "never render to body"
 
-
-/**
- * container = an HTML element that will contain the hyperpp.
- * In real life, never make body the container! 
- * One shouldn't render to body
- * because everybody knows about it and everybody updates it
- */
+/* 
+# 037
+Tags: DOM, render
+Lib/Fwk: Hyperapp
+Source: 
+https://github.com/hyperapp/hyperapp/blob/master/src/index.js
+*/
 
 function render() {
   renderLock = !renderLock
 
   var next = view(globalState, wiredActions)
-  // if render is not locked and there's a container to render into
+  /**
+   * container = an HTML element in which the hyperapp will be rendered.
+   * In real life, never use HTML `body` as container! 
+   * One shouldn't render to body, because everybody knows about it and everybody updates it -
+   * Google Font Loader, 3rd parties, social media, ... (see READMEE for details).
+   */
   if (container && !renderLock) {
     rootElement = patch(container, rootElement, oldNode, (oldNode = next))
     // firstRender determines 
