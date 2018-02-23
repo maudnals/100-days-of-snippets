@@ -1,6 +1,7 @@
 "never render to body"
 
 
+// container = an HTML element that will contain the h app
 function render() {
   renderLock = !renderLock
 
@@ -15,7 +16,7 @@ function render() {
   // probably that's what is used to add hooks
   while ((next = lifecycleStack.pop())) next()
 
-  while (lifecycleStack.pop()) {
-    next()
-  } 
+  // while (lifecycleStack.pop()) {
+  //   lifecycleStack.pop()()
+  // } 
 }
