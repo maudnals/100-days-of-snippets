@@ -1,5 +1,3 @@
-"never render to body"
-
 /* 
 # 037
 Tags: DOM, render
@@ -20,7 +18,7 @@ function render() {
    */
   if (container && !renderLock) {
     /*
-    * (oldNode = next): this syntax is just for concision.
+    (oldNode = next): this syntax is just for concision.
     -----
     instead of:
     temp = oldNode
@@ -29,13 +27,13 @@ function render() {
     -----
     we do: 
     rootElement = patch(container, rootElement, oldNode, oldNode = next)
-    It's shorter, more elegant, and makes sense from the flow 
-    perspective because in the end the variable reassignment
-    is done *for* (*through*) this function call
+    It's shorter, more elegant, and makes sense (dev mental model) 
+    because this variable reassignment
+    is done *for* (*through*) this function call. So doing it in the 
+    function call itself makes it clearer!
      */
-    // oldNode = next; 
+    // 🏁
     rootElement = patch(container, rootElement, oldNode, (oldNode = next))
-    // firstRender determines 
     firstRender = false
   }
   // lifecycleStack is the stack listing all lifecycle events in an element's life
