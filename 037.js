@@ -1,7 +1,13 @@
 "never render to body"
 
 
-// container = an HTML element that will contain the h app
+/**
+ * container = an HTML element that will contain the hyperpp.
+ * In real life, never make body the container! 
+ * One shouldn't render to body
+ * because everybody knows about it and everybody updates it
+ */
+
 function render() {
   renderLock = !renderLock
 
