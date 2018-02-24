@@ -1,6 +1,6 @@
 🏁 = interesting pattern
 
-## Repos I've used
+## Source repos for these snippets
 * redux 
 * web components polyfill
 * rxjs
